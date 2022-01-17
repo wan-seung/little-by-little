@@ -8,38 +8,58 @@ class LikeButton extends React.Component {
     return React.createElement(
       'button',
       { onClick: () => this.setState({ liked: true }) },
-      text,
+      text
     );
   }
 }
 
-class Container extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { count: 0 };
-  }
-  render() {
-    return (
-      <div>
-        <LikeButton />
-        <div style={{ marginTop: 20 }}>
-          <span>현재 카운트: </span>
-          <span>{this.state.count}</span>
-          <button
-            onClick={() => this.setState({ count: this.state.count + 1 })}
-          >
-            증가
-          </button>
-          <button
-            onClick={() => this.setState({ count: this.state.count - 1 })}
-          >
-            감소
-          </button>
-        </div>
+const Container = () => {
+  const [count, setCount] = React.useState(0);
+
+  return (
+    <div>
+      <LikeButton />
+      <div style={{ marginTop: 20 }}>
+        <span>현재 카운트: </span>
+        <span>{this.state.count}</span>
+        <button onClick={() => this.setState({ count: this.state.count + 1 })}>
+          증가
+        </button>
+        <button onClick={() => this.setState({ count: this.state.count - 1 })}>
+          감소
+        </button>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+// class Container extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = { count: 0 };
+//   }
+//   render() {
+//     return (
+//       <div>
+//         <LikeButton />
+//         <div style={{ marginTop: 20 }}>
+//           <span>현재 카운트: </span>
+//           <span>{this.state.count}</span>
+//           <button
+//             onClick={() => this.setState({ count: this.state.count + 1 })}
+//           >
+//             증가
+//           </button>
+//           <button
+//             onClick={() => this.setState({ count: this.state.count - 1 })}
+//           >
+//             감소
+//           </button>
+//         </div>
+//       </div>
+//     );
+//   }
+// }
 
 const domContainer = document.querySelector('#react-root');
 ReactDOM.render(React.createElement(Container), domContainer);

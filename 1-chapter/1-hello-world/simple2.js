@@ -5,23 +5,24 @@ class LikeButton extends React.Component {
   }
   render() {
     const text = this.state.liked ? '좋아요 취소' : '좋아요';
+
     return React.createElement(
       'button',
       { onClick: () => this.setState({ liked: true }) },
-      text,
+      text
     );
   }
 }
 
 ReactDOM.render(
   React.createElement(LikeButton),
-  document.querySelector('#react-root1'),
+  document.querySelector('#react-root1')
 );
 ReactDOM.render(
   React.createElement(LikeButton),
-  document.querySelector('#react-root2'),
+  document.querySelector('#react-root2')
 );
 ReactDOM.render(
   React.createElement(LikeButton),
-  document.querySelector('#react-root3'),
+  document.querySelector('#react-root3')
 );
